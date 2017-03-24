@@ -12,7 +12,7 @@ var pollInterval = 60 * 1000
 var pollingWindow = 2 * 60 * 1000
 var streamingWindow = 2 * 60 * 1000
 var waitTime = 15 * 60 * 1001 //added 15 extra milliseconds just to be safe on the limit window
-var location
+var location = ''
 
 //Twitter API access info
 const client = new Twitter({
@@ -27,11 +27,15 @@ const client = new Twitter({
 // Pull all statuses relating to specified keyword (track:'keyword')
 // Streaming message types: https://dev.twitter.com/streaming/overview/messages-types
 // https://dev.twitter.com/streaming/overview/request-parameters
+// NOTE: For tracking comma function as logical OR while space functions as logical AND
+// NOTE: Location requires bounding box Easy way to get bbox
+//  1. Go to http://boundingbox.klokantech.com/
+//  2. Set copy/paste to csv raw
 const stream = client.stream('statuses/filter', {
-	track: '@BeyondWland' OR '#Beyond2017'
+	track: '@BeyondWland,#Beyond2017'
 	//track: 'Beyond2017'
 	//locations: '34.1083, -117.2898, 20mi' <- this should be the location for the festival
-	//locations: '-122.75,36.8,-121.75,37.8'
+	// locations: ''
 })
 
 // Reference to example response
@@ -59,7 +63,7 @@ stream.on('data', (tweet) => {
 				coordinates: tweet.coordinates,
 				event_location: location
 			})
-		});		
+		});
 	} catch (e) {}
 })
 
@@ -76,7 +80,7 @@ const poll = () => {
 	var i, tempData, chunk = 180
 	for(i = 0; i < total; i+=chunk){
 		//slice array into sub arrays of size <= 180
-		tempData = data.slice(i, i+chunk) 
+		tempData = data.slice(i, i+chunk)
 		console.log('Taking poll . . .')
 		//pollHelper(i, i+(tempData.length - 1))
 		pollFunction = setInterval(() => {
@@ -137,9 +141,9 @@ const endStreaming = () => {
 	console.log('Waiting 15 minutes to begin polling . . .')
 	setTimeout(poll, waitTime)
 	console.log('Starting polling . . .')
-	setTimeout(poll, waitTime * 2.2)// this would fire off at the same time as the other call. 
-	console.log('Starting second poll . . .') 
-	
+	setTimeout(poll, waitTime * 2.2)// this would fire off at the same time as the other call.
+	console.log('Starting second poll . . .')
+
 	setTimeout(endPolling, waitTime * (data.length/180))
 }
 
