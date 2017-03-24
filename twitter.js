@@ -12,6 +12,7 @@ var pollInterval = 60 * 1000
 var pollingWindow = 2 * 60 * 1000
 var streamingWindow = 2 * 60 * 1000
 var waitTime = 15 * 60 * 1001 //added 15 extra milliseconds just to be safe on the limit window
+var location
 
 //Twitter API access info
 const client = new Twitter({
@@ -27,7 +28,9 @@ const client = new Twitter({
 // Streaming message types: https://dev.twitter.com/streaming/overview/messages-types
 // https://dev.twitter.com/streaming/overview/request-parameters
 const stream = client.stream('statuses/filter', {
-	track: 'JavaScript'
+	track: '@BeyondWland' OR '#Beyond2017'
+	//track: 'Beyond2017'
+	//locations: '34.1083, -117.2898, 20mi' <- this should be the location for the festival
 	//locations: '-122.75,36.8,-121.75,37.8'
 })
 
@@ -47,11 +50,14 @@ stream.on('data', (tweet) => {
 				fav_overtime: [tweet.favorite_count],
 				time: [tweet.timestamp_ms],
 				user: tweet.user.screen_name,
+				user_location: tweet.user.location,
 				profile_pic: tweet.user.profile_image_url,
 				followers: tweet.user.followers_count,
 				following: tweet.user.friends_count,
 				text: tweet.text,
-				fixed_text: text
+				fixed_text: text,
+				coordinates: tweet.coordinates,
+				event_location: location
 			})
 		});		
 	} catch (e) {}
@@ -93,7 +99,7 @@ const pollHelper = (current, total) => {
 			}
 
 			if (data[current].fav_overtime[data[current].fav_overtime.length - 1] !== tweet.favorite_count) {
-				data[current].fav_overtime.push(tweet.retweet_count)
+				data[current].fav_overtime.push(tweet.favorite_count)
 			}
 
 			data[current].time.push(moment().milliseconds() - startMoment)
@@ -131,7 +137,7 @@ const endStreaming = () => {
 	console.log('Waiting 15 minutes to begin polling . . .')
 	setTimeout(poll, waitTime)
 	console.log('Starting polling . . .')
-	setTimeout(poll, waitTime)// this would fire off at the same time as the other call. 
+	setTimeout(poll, waitTime * 2.2)// this would fire off at the same time as the other call. 
 	console.log('Starting second poll . . .') 
 	
 	setTimeout(endPolling, waitTime * (data.length/180))
