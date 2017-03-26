@@ -10,7 +10,7 @@ const fs = require('fs')
 // 	this way polling may continue on a limited subset instead of an ever increasing set
 var pollInterval = 60 * 1000
 var pollingWindow = 2 * 60 * 1000
-var streamingWindow = 2 * 60 * 1000
+var streamingWindow = 30 * 60 * 1000
 var waitTime = 2 * 60 * 1001 //added 15 extra milliseconds just to be safe on the limit window
 var location = ''
 
@@ -32,8 +32,8 @@ const client = new Twitter({
 //  1. Go to http://boundingbox.klokantech.com/
 //  2. Set copy/paste to csv raw
 const stream = client.stream('statuses/filter', {
-	// track: '@BeyondWland,#Beyond2017'
-	track: 'JavaScript'
+	track: '@BeyondWland,#Beyond2017'
+	// track: 'JavaScript'
 	//locations: '-117.4699401855,33.9883491527,-117.0991516113,34.1941975383' <- this is the location for the festival
 })
 
@@ -148,7 +148,7 @@ const pollHelper = (current, total) => {
 const output = () => {
 	// Dump to file
 	var json = JSON.stringify(data, null, 4)
-	var filename = 'output_' + moment().format('YYYY-MM-DD_HH-mm') + '.json'
+	var filename = 'output_' + moment().format('YYYY-MM-DD_HH-mm') + '-BeyondWland' + '.json'
 	fs.writeFile(filename, json, 'utf8', (error) => {
 		if (error) throw error
 		console.log('File saved as: ' + filename)
@@ -175,9 +175,14 @@ const endStreaming = () => {
 	console.log('Ending streaming . . .' + moment().format('LLLL'))
 	stream.destroy()
 
+	//Just for streaming
+	console.log('Writing to file . . .')
+	output()
+	//Just for streaming 
+
 	// Second: Begin polling the end it
-	console.log('Waiting ' + (waitTime/60000) + ' minutes to begin polling . . .'+ moment().format('LLLL'))
-	setTimeout(poll, waitTime)
+	//console.log('Waiting ' + (waitTime/60000) + ' minutes to begin polling . . .'+ moment().format('LLLL'))
+	//setTimeout(poll, waitTime)
 	// console.log('Starting polling . . .' + moment().format('LLLL'))
 	// setTimeout(poll, waitTime * 2.2)// this would fire off at the same time as the other call.
 	// console.log('Starting second poll . . .'+ moment().format('LLLL'))
