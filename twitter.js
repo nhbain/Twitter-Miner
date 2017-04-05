@@ -118,7 +118,7 @@ const pollHelper = (current, total) => {
 	}
 	// console.log(current + "," + total + "," + data.length + "," + tempData.length)
 
-	client.get('statuses/lookup', {id: data[current].id} , (error, tweet) => {
+	client.get('statuses/show', {id: data[current].id} , (error, tweet) => {
 		if (error) {
 			console.log(error)
 			console.log(data[current].id + "," + tweet)
