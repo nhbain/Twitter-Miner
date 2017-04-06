@@ -1,0 +1,11 @@
+1. What is the main event being talked about in this data set?
+
+2. What percentage of tweets with x amount of followers dealt with y event?
+
+3. What was the highest retweet count for x time?
+
+4. What hashtag has the highest frequency?
+
+5. Who is being retweeted the most?
+
+6. When did this subject start to decline/rise in popularity?
