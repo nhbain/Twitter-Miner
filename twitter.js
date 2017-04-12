@@ -10,7 +10,7 @@ const fs = require('fs')
 // 	this way polling may continue on a limited subset instead of an ever increasing set
 var pollInterval = 60 * 1000
 var pollingWindow = 2 * 60 * 1000
-var streamingWindow = 30 * 60 * 1000
+var streamingWindow = 6 * 60 * 1000
 var waitTime = 2 * 60 * 1001 //added 15 extra milliseconds just to be safe on the limit window
 var location = ''
 
@@ -32,7 +32,7 @@ const client = new Twitter({
 //  1. Go to http://boundingbox.klokantech.com/
 //  2. Set copy/paste to csv raw
 const stream = client.stream('statuses/filter', {
-	track: '@BeyondWland,#Beyond2017'
+	track: '#NationalPetDay,#LoveMySchoolDay'
 	// track: 'JavaScript'
 	//locations: '-117.4699401855,33.9883491527,-117.0991516113,34.1941975383' <- this is the location for the festival
 })
@@ -148,7 +148,7 @@ const pollHelper = (current, total) => {
 const output = () => {
 	// Dump to file
 	var json = JSON.stringify(data, null, 4)
-	var filename = 'output_' + moment().format('YYYY-MM-DD_HH-mm') + '-BeyondWland' + '.json'
+	var filename = 'output_' + moment().format('YYYY-MM-DD_HH-mm') + '-NationalPetDay' + '.json'
 	fs.writeFile(filename, json, 'utf8', (error) => {
 		if (error) throw error
 		console.log('File saved as: ' + filename)
