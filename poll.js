@@ -16,6 +16,7 @@ const client = new Twitter({
 //Variables
 var inputname = "output_2017-04-11_10-49-NationalPetDay.json"
 var tweets = []
+var tweetChunks
 var maxRetweet
 var minRetweet
 var maxFavorite
@@ -23,6 +24,7 @@ var minFavorite
 var maxTime = 5*60*1000 //five minutes
 var minTime = 1*60*1000 //one minute
 var pollWindow = 0.5*60*1000 
+var waitTime = 15*60*1001 // ~fifteen minutes
 
 
 function init(){
@@ -47,13 +49,105 @@ function init(){
 		})
 	}
 
-
 	//initialize variables
 	minFavorite = 0
 	minRetweet = 0
 	maxFavorite = 4
 	maxRetweet = 4
 
+	var total = tweets.length
+	var k, count = 0, chunk = 180
+	tweetChunks = Math.ceil(total/180)
+	console.log('Number of chunks: ', tweetChunks)
+	var pollFunction = null
+
+	for(k = 0; k < total; k+=chunk){
+		(function (k){
+			if(k > total){
+				output()
+			}
+			//slice array into sub arrays of size <= 180
+			if(tweets.length > 180){
+				tempData = tweets.slice(k, k+chunk)
+				pollFunction = setInterval(() => {
+					console.log('Taking poll for chunk ' + count + '. . .' + moment().format('LLLL'))
+					count++
+					poll(k, k+(tempData.length - 1))
+				}, waitTime)
+			}
+			else{
+				console.log('Taking poll. . .' + moment().format('LLLL'))
+				poll(k, total - 1)
+			}
+		}).call(this, k);
+	}
+
+	// for(i = 0; i < tweets.length; i++){
+	// 	(function (i){
+	// 		client.get('statuses/lookup', {id: tweets[i].id} , (error, tweet) => {
+	// 		if(error){
+	// 			console.log(error)
+	// 		}
+	// 		else{
+	// 			// console.log(tweet)
+	// 			if(tweet.length != 0){
+	// 				//console.log("Found : ", tweets[i].id)
+	// 				var temp
+
+	// 				//check to see if max values need to be changed.
+	// 				if(tweet.retweet_count > maxRetweet){maxRetweet = tweet.retweet_count}
+	// 				if(tweet.favorite_count > maxFavorite){maxFavorite = tweet.favorite_count}
+
+	// 				if(tweets[i].rt_overtime[0] == tweet.retweet_count){
+	// 					temp = Math.floor(Math.random() * (maxRetweet - minRetweet) + minRetweet)
+	// 					tweets[i].rt_overtime.push(Math.floor(Math.random() * (maxRetweet - minRetweet) + minRetweet))
+	// 				}
+	// 				else{
+	// 					tweets[i].rt_overtime.push(tweet.retweet_count)
+	// 				}
+
+	// 				if(tweets[i].fav_overtime[0] == tweet.favorite_count){
+	// 					temp = Math.floor(Math.random() * (maxFavorite - minFavorite) + minFavorite)
+	// 					tweets[i].fav_overtime.push(temp)
+	// 				}
+	// 				else{
+	// 					tweets[i].fav_overtime.push(tweet.favorite_count)
+	// 				}
+
+	// 				temp = Math.floor(Math.random() * (maxTime - minTime) + minTime)
+	// 				var newTime = parseInt(tweets[i].time[0])
+	// 				newTime += temp
+	// 				tweets[i].time.push(newTime.toString())
+	// 			}
+	// 			else{
+	// 				//console.log("Unable to find tweet with id: ", tweets[i].id)
+	// 				temp = Math.floor(Math.random() * (maxRetweet - minRetweet) + minRetweet) 
+	// 				tweets[i].rt_overtime.push(temp)
+
+	// 				temp = Math.floor(Math.random() * (maxFavorite - minFavorite) + minFavorite)
+	// 				tweets[i].fav_overtime.push(temp)
+
+	// 				temp = Math.floor(Math.random() * (maxTime - minTime) + minTime)
+	// 				var newTime = parseInt(tweets[i].time[0])
+	// 				newTime += temp
+	// 				tweets[i].time.push(newTime.toString())
+	// 			}
+	// 		}
+	// 		})
+	// 	}).call(this, i);
+		
+	// }
+	//dump to new file
+	if(total < 180){
+		setTimeout(output, pollWindow)
+	}
+	else{
+		setTimeout(output, waitTime*tweetChunks)
+	}
+}
+
+const poll = (current, total) => {
+	console.log('Starting polling. . .' + moment().format('LLLL'))
 	for(i = 0; i < tweets.length; i++){
 		(function (i){
 			client.get('statuses/lookup', {id: tweets[i].id} , (error, tweet) => {
@@ -109,9 +203,8 @@ function init(){
 		}).call(this, i);
 		
 	}
-	//dump to new file
-	setTimeout(output, pollWindow)
 }
+
 
 const output = () => {
 	var json = JSON.stringify(tweets, null, 4)
