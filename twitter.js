@@ -49,7 +49,7 @@ stream.on('data', (tweet) => {
 		autolinker.parse(tweet, function(err,result){
 			var text = result.html
 			data.push({
-				id: tweet.id,
+				id: tweet.id_str,
 				rt_overtime: [tweet.retweet_count],
 				fav_overtime: [tweet.favorite_count],
 				time: [tweet.timestamp_ms],
