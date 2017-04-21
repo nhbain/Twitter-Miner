@@ -4,8 +4,10 @@
 
 3. What was the highest retweet count for x time?
 
-4. What hashtag has the highest frequency?
-
 5. Who is being retweeted the most?
 
 6. When did this subject start to decline/rise in popularity?
+
+7. What is the average follower/following count (probably between 0 and 100)
+
+8. What was the largest amount of tweets with followers between x and y amount throughout this stream?

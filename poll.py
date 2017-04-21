@@ -8,6 +8,7 @@ except ImportError:
 from twython import Twython, TwythonError
 
 import random
+import time
 
 # Twitter Credentials and Instantiation ----------------------------------------
 ACCESS_TOKEN = '835131198108282880-RsY3sTnIiIUZMfSQfBap9BYFAqe5pLa'
@@ -20,7 +21,7 @@ twitter.verify_credentials()
 # Twitter Credentials and Instantiation ----------------------------------------
 
 # Load File ----------------------------------------
-filename = 'output_2017-03-25_12-12-BeyondWland.json'
+filename = 'output_2017-04-11_10-49-NationalPetDay.json'
 with open(filename) as data_file:
     tweets = json.load(data_file)
 # Load File ----------------------------------------
@@ -33,6 +34,7 @@ random.seed(a=None)
 
 # Output Function ----------------------------------------
 def output():
+    print "Writing to file. . ."
     outputFile = 'pypoll_' + filename
     with open(outputFile, 'w') as outfile:
         json.dump(tweets, outfile, indent=4)
@@ -51,7 +53,9 @@ def poll(current, limit):
 
     for i in tweets:
         if (count%180 == 0):
+            print "GET limit reached. Waiting 15 minutes to begin polling again. . ."
             time.sleep(15*61)
+            print "Continuing polling. . ."
 
         try:
             tweet = twitter.show_status(id = i['id'])
@@ -78,7 +82,8 @@ def poll(current, limit):
             i['time'].append(newtime)          
 
         except TwythonError as e:
-            print e.error_code
+            if(e.error_code != 404):
+                print e.error_code
 
             temp = random.randint(minRetweet, maxRetweet)
             i['rt_overtime'].append(temp)
