@@ -32,8 +32,8 @@ const client = new Twitter({
 //  1. Go to http://boundingbox.klokantech.com/
 //  2. Set copy/paste to csv raw
 const stream = client.stream('statuses/filter', {
-	track: '#RIPPrince,#FridayFeeling,#FlashbackFriday,#poweroutage,#nationalteaday,Earthday'
-	// track: 'JavaScript'
+	track: '#marchforscience,#saturdaymorning,EarthDay,#satchat'
+	//track: '#RIPPrince,#FridayFeeling,#FlashbackFriday,#poweroutage,#nationalteaday,EarthDay' ComboStream-21
 	//locations: '-117.4699401855,33.9883491527,-117.0991516113,34.1941975383' <- this is the location for the festival
 })
 
@@ -148,7 +148,7 @@ const pollHelper = (current, total) => {
 const output = () => {
 	// Dump to file
 	var json = JSON.stringify(data, null, 4)
-	var filename = 'output_' + moment().format('YYYY-MM-DD_HH-mm') + '-NationalPetDay' + '.json'
+	var filename = 'ComboStream-22' + '.json'
 	fs.writeFile(filename, json, 'utf8', (error) => {
 		if (error) throw error
 		console.log('File saved as: ' + filename)

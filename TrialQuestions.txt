@@ -11,3 +11,11 @@
 7. What is the average follower/following count (probably between 0 and 100)
 
 8. What was the largest amount of tweets with followers between x and y amount throughout this stream?
+
+9. What national holiday is going on (national tea day / earth day)
+
+10. What celebrity are people talking about?
+
+11. What happened in San Francisco Today? 
+
+12. 

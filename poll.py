@@ -21,16 +21,14 @@ twitter.verify_credentials()
 # Twitter Credentials and Instantiation ----------------------------------------
 
 # Load File ----------------------------------------
-filename = 'output_2017-04-11_10-49-NationalPetDay.json'
+filename = 'ComboStream-22.json'
 with open(filename) as data_file:
     tweets = json.load(data_file)
 # Load File ----------------------------------------
 
-# Global Variables ----------------------------------------
-
-
+# Seed For Random # Gen ----------------------------------------
 random.seed(a=None)
-# Global Variables ----------------------------------------
+# Seed For Random # Gen ----------------------------------------
 
 # Output Function ----------------------------------------
 def output():
@@ -104,7 +102,4 @@ def poll(current, limit):
 poll(0, len(tweets))
 output()
 
-# tweets[0]["fav_overtime"].append(200)
-# output()
-# print json.dumps(tweets[0]["fav_overtime"], indent=4)
 
