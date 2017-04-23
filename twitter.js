@@ -14,12 +14,20 @@ var streamingWindow = 6 * 60 * 1000
 var waitTime = 2 * 60 * 1001 //added 15 extra milliseconds just to be safe on the limit window
 var location = ''
 
-//Twitter API access info
+//Twitter API access info -NHB
+// const client = new Twitter({
+// 	consumer_key: 'iCqI27Unu8I8z8X8ktqkqdekS',
+// 	consumer_secret: 'w7TqSQfdHQnGaF1NZEWZO18ahW7gFArIXfjKLTNhQ4lPxqf4m8',
+// 	access_token_key: '835131198108282880-RsY3sTnIiIUZMfSQfBap9BYFAqe5pLa',
+// 	access_token_secret: 'R3kPEA1lyFwdjzFw3RtoFuF0US9fBmpD3g2x1Sb9ztwRD'
+// })
+
+//Twitter API access info -ZC
 const client = new Twitter({
-	consumer_key: 'iCqI27Unu8I8z8X8ktqkqdekS',
-	consumer_secret: 'w7TqSQfdHQnGaF1NZEWZO18ahW7gFArIXfjKLTNhQ4lPxqf4m8',
-	access_token_key: '835131198108282880-RsY3sTnIiIUZMfSQfBap9BYFAqe5pLa',
-	access_token_secret: 'R3kPEA1lyFwdjzFw3RtoFuF0US9fBmpD3g2x1Sb9ztwRD'
+	consumer_key: 'gvo7T1pUunt1GNI2Cwgbfo9m2',
+	consumer_secret: 'dOBoQkxkPj1PrkDZlcfZp9HDrD4EhpHhI4fiFaZLxtHmoecSD6',
+	access_token_key: '513238808-OB5OlMjXL3mIcaEnwbCvQK3FjPM4c32qTY1iCl1K',
+	access_token_secret: 'HLzvjVzgrMcp11p2yjCO3pC9NlZzDCVQFJicRaviefJcU'
 })
 
 // TODO: Create another client to poll - maybe API will get angry though? :(
@@ -32,7 +40,8 @@ const client = new Twitter({
 //  1. Go to http://boundingbox.klokantech.com/
 //  2. Set copy/paste to csv raw
 const stream = client.stream('statuses/filter', {
-	track: '#marchforscience,#saturdaymorning,EarthDay,#satchat'
+	track: '#WorldBookDay,#SundayMorning,#FakeAirlineFacts,#ShakespeareSunday,#ElClasico,#NYCvORL' //ComboStream-23
+	// track: '#marchforscience,#saturdaymorning,EarthDay,#satchat' ComboStream-22
 	//track: '#RIPPrince,#FridayFeeling,#FlashbackFriday,#poweroutage,#nationalteaday,EarthDay' ComboStream-21
 	//locations: '-117.4699401855,33.9883491527,-117.0991516113,34.1941975383' <- this is the location for the festival
 })
@@ -148,7 +157,7 @@ const pollHelper = (current, total) => {
 const output = () => {
 	// Dump to file
 	var json = JSON.stringify(data, null, 4)
-	var filename = 'ComboStream-22' + '.json'
+	var filename = 'ComboStream-23' + '.json'
 	fs.writeFile(filename, json, 'utf8', (error) => {
 		if (error) throw error
 		console.log('File saved as: ' + filename)

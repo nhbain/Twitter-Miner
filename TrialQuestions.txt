@@ -1,4 +1,4 @@
-1. What is the main event being talked about in this data set?
+1. What is the main event being talked about in this data set? 
 
 2. What percentage of tweets with x amount of followers dealt with y event?
 
@@ -18,4 +18,34 @@
 
 11. What happened in San Francisco Today? 
 
-12. 
+12. What hashtag is most frequent in the x,y range 
+
+13. What hashtag is retweeted the most? 
+
+ComboStream-21:
+
+1. What happened in San Francisco Today? (power outage) 
+
+2. What celebrity are people talking about and why? (Prince, 1 year anniversary of his death)
+
+3. How many tweets had a retweet count over 11,000? (101 tweets) 
+
+4. What day of the week was it in this data set? (Friday)
+
+5. At what time period are the most people tweeting? ()
+
+6. When is there a spike in high favorited tweets? (1:40:12 favorite spike)
+
+ComboStream-22:
+
+1. What day of the week was it in this data set? (Saturday)
+
+2. What annual event is occuring? (Earth Day)
+
+3. What are people marching for? (for science!)
+
+4. How many twitter users have over x followers?
+
+5. How many tweets got a favorite count over x? (101)
+
+ComboStream-23:

@@ -11,17 +11,26 @@ import random
 import time
 
 # Twitter Credentials and Instantiation ----------------------------------------
-ACCESS_TOKEN = '835131198108282880-RsY3sTnIiIUZMfSQfBap9BYFAqe5pLa'
-ACCESS_SECRET = 'R3kPEA1lyFwdjzFw3RtoFuF0US9fBmpD3g2x1Sb9ztwRD'
-CONSUMER_KEY = 'iCqI27Unu8I8z8X8ktqkqdekS'
-CONSUMER_SECRET = 'w7TqSQfdHQnGaF1NZEWZO18ahW7gFArIXfjKLTNhQ4lPxqf4m8'
+
+# NHB Credentials
+# ACCESS_TOKEN = '835131198108282880-RsY3sTnIiIUZMfSQfBap9BYFAqe5pLa'
+# ACCESS_SECRET = 'R3kPEA1lyFwdjzFw3RtoFuF0US9fBmpD3g2x1Sb9ztwRD'
+# CONSUMER_KEY = 'iCqI27Unu8I8z8X8ktqkqdekS'
+# CONSUMER_SECRET = 'w7TqSQfdHQnGaF1NZEWZO18ahW7gFArIXfjKLTNhQ4lPxqf4m8'
+
+CONSUMER_KEY ='gvo7T1pUunt1GNI2Cwgbfo9m2'
+CONSUMER_SECRET ='dOBoQkxkPj1PrkDZlcfZp9HDrD4EhpHhI4fiFaZLxtHmoecSD6'
+ACCESS_TOKEN ='513238808-OB5OlMjXL3mIcaEnwbCvQK3FjPM4c32qTY1iCl1K'
+ACCESS_SECRET ='HLzvjVzgrMcp11p2yjCO3pC9NlZzDCVQFJicRaviefJcU'
+
+# Zhi Chai Credentials
 
 twitter = Twython(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_SECRET)
 twitter.verify_credentials()
 # Twitter Credentials and Instantiation ----------------------------------------
 
 # Load File ----------------------------------------
-filename = 'ComboStream-22.json'
+filename = 'npd_sent.json'
 with open(filename) as data_file:
     tweets = json.load(data_file)
 # Load File ----------------------------------------
@@ -44,8 +53,8 @@ def poll(current, limit):
     count = 1
     minFavorite = 0
     minRetweet = 0
-    maxFavorite = 4
-    maxRetweet = 4
+    maxFavorite = 10
+    maxRetweet = 1126
     minTime = 1*60*1000 # one minute
     maxTime = 5*60*1000 # five minutes
 
