@@ -15,7 +15,7 @@ const client = new Twitter({
 
 
 //Variables
-var inputname = "ComboStream-21.json"
+var inputname = "pypoll_ComboStream-21.json"
 var tweets = []
 var maxRetweet
 var minRetweet
@@ -31,8 +31,15 @@ function init(){
 	var contents = fs.readFileSync(inputname)
 	var data = JSON.parse(contents)
 	
+	//for(j = 0; j < data.length; j++){
+	//		tweets.push({
+	//			followers: data[j].followers,
+	//			following: data[j].following,
+	//		})
+	//}
+
 	for(j = 0; j < data.length; j++){
-		if(data[j].following>44&&data[j].following<5315&&data[j].followers>40&&data[j].followers<4996){
+		if(data[j].following>80&&data[j].following<4580&&data[j].followers>40&&data[j].followers<4996){
 			
 		var stmt = sentiment(data[j].text);
 			
@@ -53,11 +60,10 @@ function init(){
 				stmt: stmt
 			})
 			console.log(stmt)
-
+    
 		}
 	}
-
-
+	
 //dump to new file
 	setTimeout(output, pollWindow)
 }
