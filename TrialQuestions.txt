@@ -28,13 +28,11 @@ ComboStream-21:
 
 2. What celebrity are people talking about and why? (Prince, 1 year anniversary of his death)
 
-3. How many tweets had a retweet count over 11,000? (101 tweets) 
+3. How many tweets had a retweet count between 7 and 8k (12 tweets) 
 
 4. What day of the week was it in this data set? (Friday)
 
-5. At what time period are the most people tweeting? ()
-
-6. When is there a spike in high favorited tweets? (1:40:12 favorite spike)
+6. How many tweets received more than 325 favorites between 1:37:06 and 1:37:33 (10 tweets)
 
 ComboStream-22:
 
@@ -44,30 +42,26 @@ ComboStream-22:
 
 3. What are people marching for? (for science!)
 
-4. How many twitter users have over x followers?
+4. How many twitter users have over 4000 followers? (17 users)
 
-5. How many tweets got a favorite count over x? (101)
+5. How many tweets got a favorite count between 1000 and 1200 between 9:09:35 and 9:09:47 (10)
 
 ComboStream-23:
 
 1. Name one of the two sporting events happening today. (NYCvORL or ElClasico)
 
-2. What day of the week was it in this data set? (Sunday)
+2. Name a sports team that is playing today (NYC, ORL, Madrid, Barcelona)
 
 3. What type of comedic facts are people tweeting about today? (FakeAirlineFacts)
 
-4. How many tweets have a favorite count between x and y?
+4. In the first 30 seconds of this stream, how many tweets were favorited more than 1000 times? (26)
 
-5. How many twitter users follow more than x people? 
+5. How many twitter users follow more than 3600 people? (15 people)
 
-NathionalPetDay
+NationalPetDay
 
-1. Of the two events being tweeted about in this data set, name the more popular topic. (National Pet Day)
+2. Of the two events being tweeted about in this data set, name the less popular topic. (LoveMySchoolDay)
 
-2. Of the two events being tweeted about in this data set, name the less popular topic. (IlovemySchoolday)
+4. In the first 30 seconds of this stream, how many tweets received more than 1200 retweets? (12) 
 
-3. Sentiment Question
-
-4. How many tweets have a retweet count between x and y? 
-
-5. How many tweets were favorited more than 900 times between 10:43:20 and 10:44:50 (8 tweets, TIMESLICE TO USE FOR 1 min stream: 10:43:10 - 10:44:10)
+5. How many tweets were favorited more than 900 times between 10:46:25 and 10:46:45 (10 tweets)
