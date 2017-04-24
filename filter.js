@@ -15,7 +15,7 @@ const client = new Twitter({
 
 
 //Variables
-var inputname = "pypoll_ComboStream-21.json"
+var inputname = "pypoll_ComboStream-23.json"
 var tweets = []
 var maxRetweet
 var minRetweet
@@ -45,9 +45,9 @@ function init(){
 			
 			tweets.push({
 				id: data[j].id,
-				rt_overtime: [data[j].rt_overtime[0]],
-				fav_overtime: [data[j].fav_overtime[0]],
-				time: [data[j].time[0]],
+				rt_overtime: data[j].rt_overtime,
+				fav_overtime: data[j].fav_overtime,
+				time: data[j].time,
 				user: data[j].user,
 				user_location: data[j].user_location,
 				profile_pic: data[j].profile_pic,
@@ -70,7 +70,7 @@ function init(){
 
 const output = () => {
 	var json = JSON.stringify(tweets, null, 4)
-	var filename = 'ft_' + inputname
+	var filename = 'ftn_' + inputname
 	fs.writeFile(filename, json, 'utf8', (error) => {
 		if (error) throw error
 		console.log('File saved as: ' + filename)
