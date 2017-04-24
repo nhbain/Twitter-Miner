@@ -40,7 +40,7 @@ const client = new Twitter({
 //  1. Go to http://boundingbox.klokantech.com/
 //  2. Set copy/paste to csv raw
 const stream = client.stream('statuses/filter', {
-	track: '#WorldBookDay,#SundayMorning,#FakeAirlineFacts,#ShakespeareSunday,#ElClasico,#NYCvORL' //ComboStream-23
+	track: '#SundayMorning,#FakeAirlineFacts,#ShakespeareSunday,#ElClasico,#NYCvORL' //ComboStream-23
 	// track: '#marchforscience,#saturdaymorning,EarthDay,#satchat' ComboStream-22
 	//track: '#RIPPrince,#FridayFeeling,#FlashbackFriday,#poweroutage,#nationalteaday,EarthDay' ComboStream-21
 	//locations: '-117.4699401855,33.9883491527,-117.0991516113,34.1941975383' <- this is the location for the festival

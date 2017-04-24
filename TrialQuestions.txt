@@ -49,3 +49,25 @@ ComboStream-22:
 5. How many tweets got a favorite count over x? (101)
 
 ComboStream-23:
+
+1. Name one of the two sporting events happening today. (NYCvORL or ElClasico)
+
+2. What day of the week was it in this data set? (Sunday)
+
+3. What type of comedic facts are people tweeting about today? (FakeAirlineFacts)
+
+4. How many tweets have a favorite count between x and y?
+
+5. How many twitter users follow more than x people? 
+
+NathionalPetDay
+
+1. Of the two events being tweeted about in this data set, name the more popular topic. (National Pet Day)
+
+2. Of the two events being tweeted about in this data set, name the less popular topic. (IlovemySchoolday)
+
+3. Sentiment Question
+
+4. How many tweets have a retweet count between x and y? 
+
+5. How many tweets were favorited more than x times between y and z (time)
