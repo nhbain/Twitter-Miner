@@ -30,7 +30,7 @@ twitter.verify_credentials()
 # Twitter Credentials and Instantiation ----------------------------------------
 
 # Load File ----------------------------------------
-filename = 'ComboStream-23.json'
+filename = 'npd_sent.json'
 with open(filename) as data_file:
     tweets = json.load(data_file)
 # Load File ----------------------------------------
@@ -52,16 +52,16 @@ def output():
 def poll(current, limit):
     count = 1
     minFavorite = 0
-    minRetweet = 0
-    maxFavorite = 10
-    maxRetweet = 1126
+    minRetweet = 1
+    maxFavorite = 1000
+    maxRetweet = 1500
     minTime = 1*60*1000 # one minute
     maxTime = 5*60*1000 # five minutes
 
     for i in tweets:
         if (count%180 == 0):
             print "GET limit reached. Waiting 15 minutes to begin polling again. . ."
-            time.sleep(15*61)
+            # time.sleep(15*61)
             print "Continuing polling. . ."
 
         try:
