@@ -70,4 +70,4 @@ NathionalPetDay
 
 4. How many tweets have a retweet count between x and y? 
 
-5. How many tweets were favorited more than x times between y and z (time)
+5. How many tweets were favorited more than 900 times between 10:43:20 and 10:44:50 (8 tweets, TIMESLICE TO USE FOR 1 min stream: 10:43:10 - 10:44:10)
