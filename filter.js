@@ -45,9 +45,9 @@ function init(){
 			
 			tweets.push({
 				id: data[j].id,
-				rt_overtime: data[j].rt_overtime[0],
-				fav_overtime: data[j].fav_overtime[0],
-				time: data[j].time[0],
+				rt_overtime: [data[j].rt_overtime[0]],
+				fav_overtime: [data[j].fav_overtime[0]],
+				time: [data[j].time[0]],
 				user: data[j].user,
 				user_location: data[j].user_location,
 				profile_pic: data[j].profile_pic,
