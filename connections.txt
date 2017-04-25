@@ -1,0 +1,47 @@
+User connected . . .
+Time:  2017-04-25T04:43:13.455Z
+ID: e3th1F_QJsGB7MulAAAs
+Aggregation Ordering: BarAggregation,None,HeatmapAggregation
+Proxy Ordering: LassoProxy,WholeScreenProxy,None
+
+User connected . . .
+Time:  2017-04-25T04:44:39.354Z
+ID: Jzq42mS2WYc8GvDzAAAt
+Aggregation Ordering: HeatmapAggregation,BarAggregation,None
+Proxy Ordering: LassoProxy,WholeScreenProxy,None
+
+User connected . . .
+Time:  2017-04-25T04:46:05.366Z
+ID: rh5eursAI2miIpDhAAAu
+Aggregation Ordering: HeatmapAggregation,BarAggregation,None
+Proxy Ordering: None,LassoProxy,WholeScreenProxy
+
+User connected . . .
+Time:  2017-04-25T04:47:31.284Z
+ID: V4T5G56P4mnpXoCmAAAv
+Aggregation Ordering: HeatmapAggregation,BarAggregation,None
+Proxy Ordering: WholeScreenProxy,None,LassoProxy
+
+User connected . . .
+Time:  2017-04-25T04:48:29.559Z
+ID: 4T2pJyPV2JWKnNzDAAAw
+Aggregation Ordering: None,HeatmapAggregation,BarAggregation
+Proxy Ordering: WholeScreenProxy,None,LassoProxy
+
+User connected . . .
+Time:  2017-04-25T04:49:04.466Z
+ID: ciEVif8PwialgU9rAAAx
+Aggregation Ordering: None,HeatmapAggregation,BarAggregation
+Proxy Ordering: LassoProxy,WholeScreenProxy,None
+
+User connected . . .
+Time:  2017-04-25T04:54:03.436Z
+ID: Df74KC-S9lY4aEuOAAAy
+Aggregation Ordering: None,HeatmapAggregation,BarAggregation
+Proxy Ordering: None,LassoProxy,WholeScreenProxy
+
+User connected . . .
+Time:  2017-04-25T13:49:45.134Z
+ID: Y16XvN_Hd4kUtOiUAAAz
+Aggregation Ordering: BarAggregation,None,HeatmapAggregation
+Proxy Ordering: None,LassoProxy,WholeScreenProxy

@@ -28,7 +28,7 @@ ComboStream-23:
 
 2. Name a sports team that is playing today (NYC, ORL, Madrid, Barcelona)
 
-3. What type of comedic facts are people tweeting about today? (FakeAirlineFacts)
+3. What day of the week was it during this data set (Sunday)
 
 4. In the first 30 seconds of this stream, how many tweets were favorited more than 1000 times? (26)
 
