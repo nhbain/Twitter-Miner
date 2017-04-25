@@ -1,32 +1,8 @@
-1. What is the main event being talked about in this data set? 
-
-2. What percentage of tweets with x amount of followers dealt with y event?
-
-3. What was the highest retweet count for x time?
-
-5. Who is being retweeted the most?
-
-6. When did this subject start to decline/rise in popularity?
-
-7. What is the average follower/following count (probably between 0 and 100)
-
-8. What was the largest amount of tweets with followers between x and y amount throughout this stream?
-
-9. What national holiday is going on (national tea day / earth day)
-
-10. What celebrity are people talking about?
-
-11. What happened in San Francisco Today? 
-
-12. What hashtag is most frequent in the x,y range 
-
-13. What hashtag is retweeted the most? 
-
 ComboStream-21:
 
 1. What happened in San Francisco Today? (power outage) 
 
-2. What celebrity are people talking about and why? (Prince, 1 year anniversary of his death)
+2. What celebrity are people talking about? (Prince)
 
 3. How many tweets had a retweet count between 7 and 8k (12 tweets) 
 
