@@ -8,7 +8,7 @@ ComboStream-21:
 
 4. What day of the week was it in this data set? (Friday)
 
-6. How many tweets received more than 325 favorites between 1:37:06 and 1:37:33 (10 tweets)
+5. How many tweets received more than 325 favorites between 1:37:06 and 1:37:33 (10 tweets)
 
 ComboStream-22:
 
