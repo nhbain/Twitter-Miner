@@ -5,7 +5,7 @@ const moment = require('moment')
 const fs = require('fs')
 
 //Variables
-var inputname = "ComboStream-8-25.json"
+var inputname = "ComboStream-9-1.json"
 var waitTime = 1 * 60 * 1001 //added 15 extra milliseconds just to be safe on the limit window
 var tweets = []
 

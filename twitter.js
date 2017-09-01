@@ -8,8 +8,7 @@ const fs = require('fs')
 // Timing variables
 // NOTE: May want a seprate timeout for killing streaming
 // 	this way polling may continue on a limited subset instead of an ever increasing set
-var streamingWindow = 2 * 60 * 1000
-var waitTime = 2 * 60 * 1001 //added 15 extra milliseconds just to be safe on the limit window
+var streamingWindow = 4 * 60 * 1000
 var location = ''
 
 //-----------------------------------------------------------------------------------------------
@@ -40,7 +39,9 @@ const client = new Twitter({
 //  1. Go to http://boundingbox.klokantech.com/
 //  2. Set copy/paste to csv raw
 const stream = client.stream('statuses/filter', {
-	track: '#FridayFeeling,#FlashbackFriday,#Harvey2017,#IfComedyDidntExist,#JavaScript,#USA' //ComboStream-8-25	
+	track: '#19YearsLater,#HelloSeptember,#honestyhour,#CollegeColorDay,#ForceFriday' //ComboStream-9-1
+	// track: '#4WordEmbarrasment,#NationalDogDay,#SomeDayIWill,#prayfortexas,#SaturdayMorning,#USA' //ComboStream-8-26	
+	// track: '#FridayFeeling,#FlashbackFriday,#Harvey2017,#IfComedyDidntExist,#JavaScript,#USA' //ComboStream-8-25	
 	// track: '#SundayMorning,#FakeAirlineFacts,#ShakespeareSunday,#ElClasico,#NYCvORL' //ComboStream-23
 	// track: '#marchforscience,#saturdaymorning,EarthDay,#satchat' ComboStream-22
 	//track: '#RIPPrince,#FridayFeeling,#FlashbackFriday,#poweroutage,#nationalteaday,EarthDay' ComboStream-21
@@ -51,7 +52,9 @@ const stream = client.stream('statuses/filter', {
 // https://dev.twitter.com/rest/reference/get/statuses/show/id
 
 //-----------------------------------------------------------------------------------------------
-var keys = ['FridayFeeling','FlashbackFriday','Harvey2017', 'IfComedydidntExist','JavaScript','USA']
+// var keys = ['FridayFeeling','FlashbackFriday','Harvey2017', 'IfComedydidntExist','JavaScript','USA']
+// var keys = ['4WordEmbarrassment','NationalDogDay','SomeDayIWill', 'prayfortexas','SaturdayMorning','USA']
+var keys = ['19YearsLater','HelloSeptember','honestyhour', 'CollegeColorDay','ForceFriday']
 var data = []
 var tempData = []
 stream.on('data', (tweet) => {
@@ -102,7 +105,7 @@ stream.on('error', (error) => {
 const output = () => {
 	// Dump to file
 	var json = JSON.stringify(data, null, 4)
-	var filename = 'ComboStream-8-25' + '.json'
+	var filename = 'ComboStream-9-1' + '.json'
 	fs.writeFile(filename, json, 'utf8', (error) => {
 		if (error) throw error
 		console.log('File saved as: ' + filename)

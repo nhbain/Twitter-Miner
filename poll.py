@@ -30,7 +30,7 @@ twitter = Twython(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_SECRET)
 twitter.verify_credentials()
 
 # Load File ----------------------------------------
-filename = 'filtered_ComboStream-8-25.json'
+filename = 'filtered_ComboStream-8-26.json'
 with open(filename) as data_file:
     tweets = json.load(data_file)
 # Load File ----------------------------------------
